@@ -3,6 +3,7 @@ package com.inventory_management_system.services;
 import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
+import com.inventory_management_system.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.inventory_management_system.dao.DataDao;
@@ -53,5 +54,26 @@ public class DataServicesImpl implements DataServices {
     @Override
     public boolean deleteAdminUser(long id) throws Exception {
         return dataDao.deleteAdminUser(id);
+    }
+
+    // Method Implementations for Users
+    @Override
+    public boolean addUser(Users user) throws Exception {
+        return dataDao.addUser(user);
+    }
+
+    @Override
+    public Users getUserById(long id) throws Exception{
+        return dataDao.getUserById(id);
+    }
+
+    @Override
+    public List<Users> getUsersList() throws Exception {
+        return dataDao.getUsersList();
+    }
+
+    @Override
+    public boolean deleteUser(long id) throws Exception {
+        return dataDao.deleteUser(id);
     }
 }

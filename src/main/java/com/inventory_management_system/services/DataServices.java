@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
 import com.inventory_management_system.model.InventoryItem;
+import com.inventory_management_system.model.Users;
 
 public interface DataServices {
 
@@ -28,4 +29,12 @@ public interface DataServices {
 
 
     //Web Services for the Users CURD operations
+    public boolean addUser(Users user) throws Exception;
+
+    public Users getUserById(long id) throws Exception;
+
+    public List<Users> getUsersList() throws Exception;
+
+    public boolean deleteUser(long id) throws Exception;
+
 }

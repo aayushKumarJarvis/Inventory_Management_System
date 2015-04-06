@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
 import com.inventory_management_system.model.InventoryItem;
+import com.inventory_management_system.model.Users;
 
 public interface DataDao {
 
@@ -24,4 +25,13 @@ public interface DataDao {
     public List<AdminUsers> getAdminUsersList() throws Exception;
 
     public boolean deleteAdminUser(long id) throws Exception;
+
+    // DAO methods for Users operations
+    public boolean addUser(Users user) throws Exception;
+
+    public Users getUserById(long id) throws Exception;
+
+    public List<Users> getUsersList() throws Exception;
+
+    public boolean deleteUser(long id) throws Exception;
 }

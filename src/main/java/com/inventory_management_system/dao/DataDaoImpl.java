@@ -3,6 +3,7 @@ package com.inventory_management_system.dao;
 import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
+import com.inventory_management_system.model.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -116,4 +117,55 @@ public class DataDaoImpl implements DataDao {
         tx.commit();
         return false;
     }
+
+    
+    // Hibernate Query handling of Users
+    @Override
+    public boolean addUser(Users user) throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        session.save(user);
+        tx.commit();
+        session.close();
+
+        return false;
+    }
+
+    public Users getUserById(long id) throws Exception {
+
+        session = sessionFactory.openSession();
+        Users user = (Users)session.load(Users.class,
+                new Long(id));
+        tx = session.getTransaction();
+        session.beginTransaction();
+        tx.commit();
+        return user;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Users> getUsersList() throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        List<Users> usersList = session.createCriteria(Users.class)
+                .list();
+        tx.commit();
+        session.close();
+        return usersList;
+    }
+
+    @Override
+    public  boolean deleteUser(long id) throws Exception {
+
+        session = sessionFactory.openSession();
+        Object o = session.load(InventoryItem.class, id);
+        tx = session.getTransaction();
+        session.beginTransaction();
+        session.delete(o);
+        tx.commit();
+        return false;
+    }
+
 }
