@@ -3,6 +3,7 @@ package com.inventory_management_system.controller;
 import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
+import com.inventory_management_system.model.Users;
 import org.apache.log4j.Logger;
 import com.inventory_management_system.model.Status;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,63 +21,63 @@ import com.inventory_management_system.services.DataServices;
 import javax.xml.crypto.Data;
 
 @Controller
-@RequestMapping("/adminUsers")
-public class AdminUsersController {
+@RequestMapping("/users")
+public class UsersController {
 
     @Autowired
     DataServices dataServices;
 
     static final Logger logger = Logger.getLogger(AdminUsers.class);
 
-    @RequestMapping(value = "/addAdminUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
-    Status addAdminUser(@RequestBody AdminUsers adminUser) {
+    Status addUser(@RequestBody Users user) {
 
         try {
-            dataServices.addAdminUser(adminUser);
-            return new Status(1, "Admin User added successfully");
+            dataServices.addUser(user);
+            return new Status(1, "User added successfully");
         } catch(Exception e) {
 
             return new Status(0,e.toString());
         }
     }
 
-    @RequestMapping(value = "adminUser/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     public @ResponseBody
-    AdminUsers getAdminUserById(@PathVariable("id") long id) {
+    Users getUserById(@PathVariable("id") long id) {
 
-        AdminUsers adminUser = null;
+        Users user = null;
 
         try {
-            adminUser = dataServices.getAdminUserById(id);
+            user = dataServices.getUserById(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return adminUser;
+        return user;
     }
 
-    @RequestMapping(value = "/listAdminUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "/listUsers", method = RequestMethod.GET)
     public @ResponseBody
-    List<AdminUsers> getAdminUsersList() {
+    List<Users> getUsersList() {
 
-        List<AdminUsers> adminUsersList = null;
+        List<Users> usersList = null;
         try {
-            adminUsersList = dataServices.getAdminUsersList();
+            usersList = dataServices.getUsersList();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return adminUsersList;
+        return usersList;
     }
 
-    @RequestMapping(value = "deleteAdminUser/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "deleteUser/{id}", method = RequestMethod.GET)
     public @ResponseBody
-    Status deleteAdminUser(@PathVariable("id") long id) {
+    Status deleteUser(@PathVariable("id") long id) {
 
         try {
-            dataServices.deleteAdminUser(id);
-            return new Status(1, "Admin User deleted Successfully !");
+            dataServices.deleteUser(id);
+            return new Status(1, "User deleted Successfully !");
         } catch (Exception e) {
             return new Status(0, e.toString());
         }

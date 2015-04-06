@@ -118,7 +118,7 @@ public class DataDaoImpl implements DataDao {
         return false;
     }
 
-    
+
     // Hibernate Query handling of Users
     @Override
     public boolean addUser(Users user) throws Exception {
