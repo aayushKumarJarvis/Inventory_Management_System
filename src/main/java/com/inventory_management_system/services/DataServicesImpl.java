@@ -12,7 +12,8 @@ public class DataServicesImpl implements DataServices {
 
 	@Autowired
 	DataDao dataDao;
-	
+
+    // Method Implementations for Inventory Items
 	@Override
 	public boolean addInventoryItem(InventoryItem inventoryItem) throws Exception {
 		return dataDao.addInventoryItem(inventoryItem);
@@ -33,13 +34,24 @@ public class DataServicesImpl implements DataServices {
 		return dataDao.deleteInventory(id);
 	}
 
+    // Method Implementations for Admin Users
     @Override
     public boolean addAdminUser(AdminUsers adminUser) throws Exception {
         return dataDao.addAdminUser(adminUser);
     }
 
     @Override
-    public AdminUsers getAdminUserById(long id) {
-        
+    public AdminUsers getAdminUserById(long id) throws Exception{
+        return dataDao.getAdminUserById(id);
+    }
+
+    @Override
+    public List<AdminUsers> getAdminUsersList() throws Exception {
+        return dataDao.getAdminUsersList();
+    }
+
+    @Override
+    public boolean deleteAdminUser(long id) throws Exception {
+        return dataDao.deleteAdminUser(id);
     }
 }

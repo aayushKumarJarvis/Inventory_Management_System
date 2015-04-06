@@ -25,7 +25,7 @@ public class InventoryController {
 
 	static final Logger logger = Logger.getLogger(InventoryController.class);
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/addItem", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody
 	Status addInventoryItem(@RequestBody InventoryItem inventoryItem) {
 		try {
@@ -38,7 +38,7 @@ public class InventoryController {
 
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "inventoryItem/{id}", method = RequestMethod.GET)
 	public @ResponseBody
     InventoryItem getInventoryById(@PathVariable("id") long id) {
 		InventoryItem inventoryItem = null;
@@ -51,7 +51,7 @@ public class InventoryController {
 		return inventoryItem;
 	}
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/listItems", method = RequestMethod.GET)
 	public @ResponseBody
 	List<InventoryItem> getInventoryList() {
 
@@ -66,7 +66,7 @@ public class InventoryController {
 		return inventoryItemList;
 	}
 
-	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "deleteInventory/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	Status deleteInventory(@PathVariable("id") long id) {
 

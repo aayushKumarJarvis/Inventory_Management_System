@@ -2,6 +2,7 @@ package com.inventory_management_system.dao;
 
 import java.util.List;
 
+import com.inventory_management_system.model.AdminUsers;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,6 +17,7 @@ public class DataDaoImpl implements DataDao {
 	Session session = null;
 	Transaction tx = null;
 
+    // Hibernate Query handling of Inventory Users
 	@Override
 	public boolean addInventoryItem(InventoryItem inventoryItem) throws Exception {
 
@@ -64,4 +66,54 @@ public class DataDaoImpl implements DataDao {
 		tx.commit();
 		return false;
 	}
+
+    //Hibernate Query handling of the AdminUsers
+    @Override
+    public boolean addAdminUser(AdminUsers adminUser) throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        session.save(adminUser);
+        tx.commit();
+        session.close();
+
+        return false;
+    }
+
+    @Override
+    public AdminUsers getAdminUserById(long id) throws Exception {
+
+        session = sessionFactory.openSession();
+        AdminUsers adminUser = (AdminUsers)session.load(AdminUsers.class,
+                new Long(id));
+        tx = session.getTransaction();
+        session.beginTransaction();
+        tx.commit();
+        return adminUser;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<AdminUsers> getAdminUsersList() throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        List<AdminUsers> adminUsersList = session.createCriteria(AdminUsers.class)
+                .list();
+        tx.commit();
+        session.close();
+        return adminUsersList;
+    }
+
+    @Override
+    public  boolean deleteAdminUser(long id) throws Exception {
+
+        session = sessionFactory.openSession();
+        Object o = session.load(InventoryItem.class, id);
+        tx = session.getTransaction();
+        session.beginTransaction();
+        session.delete(o);
+        tx.commit();
+        return false;
+    }
 }
