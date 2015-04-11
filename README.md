@@ -2,10 +2,10 @@
 
 This is our Software Engineering and Project Management project work. Following are the members working on the same :
 
-Aayush Kumar 
-Aayush Sarva
-Abhilakshya Bhateja
-Abhishek Banthia
+- Aayush Kumar 
+- Aayush Sarva
+- Abhilakshya Bhateja
+- Abhishek Banthia
 
 All the above mentioned members are the collaborators of this project.
 
