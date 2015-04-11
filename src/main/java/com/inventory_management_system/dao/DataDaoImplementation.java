@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.inventory_management_system.model.InventoryItem;
 
-public class DataDaoImpl implements DataDao {
+public class DataDaoImplementation implements DataDao {
 
 	@Autowired
 	SessionFactory sessionFactory;

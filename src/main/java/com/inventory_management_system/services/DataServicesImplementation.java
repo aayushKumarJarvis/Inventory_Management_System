@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.inventory_management_system.dao.DataDao;
 import com.inventory_management_system.model.InventoryItem;
 
-public class DataServicesImpl implements DataServices {
+public class DataServicesImplementation implements DataServices {
 
 	@Autowired
 	DataDao dataDao;

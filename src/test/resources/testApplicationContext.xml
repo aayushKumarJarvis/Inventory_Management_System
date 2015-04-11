@@ -19,7 +19,7 @@
     <tx:annotation-driven/>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:location="jdbc.properties"/>
+          p:location="classpath:jdbc.properties"/>
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
@@ -39,7 +39,7 @@
                 <prop key="hibernate.user_sql_comments">false</prop>
                 <!-- real properties -->
                 <!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
-                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <!-- <prop key="hibernate.connection.autocommit">true</prop> -->
                 <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -75,7 +75,7 @@
         </property>
     </bean>
 
-    <bean id="dataDao" class="com.inventory_management_system.dao.DataDaoImpl"/>
-    <bean id="dataServices" class="com.inventory_management_system.services.DataServicesImpl"/>
+    <bean id="dataDao" class="com.inventory_management_system.dao.DataDaoImplementation"/>
+    <bean id="dataServices" class="com.inventory_management_system.services.DataServicesImplementation"/>
 
 </beans>

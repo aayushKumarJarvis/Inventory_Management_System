@@ -42,6 +42,6 @@
 	<bean id="persistenceExceptionTranslationPostProcessor"
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-	<bean id="dataDao" class="com.inventory_management_system.dao.DataDaoImpl"/>
-	<bean id="dataServices" class="com.inventory_management_system.services.DataServicesImpl"/>
+	<bean id="dataDao" class="com.inventory_management_system.dao.DataDaoImplementation"/>
+	<bean id="dataServices" class="com.inventory_management_system.services.DataServicesImplementation"/>
 </beans>
