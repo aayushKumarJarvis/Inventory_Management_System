@@ -74,4 +74,8 @@
             </list>
         </property>
     </bean>
+
+    <bean id="dataDao" class="com.inventory_management_system.dao.DataDaoImpl"/>
+    <bean id="dataServices" class="com.inventory_management_system.services.DataServicesImpl"/>
+
 </beans>
