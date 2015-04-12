@@ -7,44 +7,53 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import java.util.List;
+
 
 public class AdminUsersTest extends BaseTest {
 
     @Resource
-    private DataDaoImplementation dataDaoTest;
+    private DataDaoImplementation dataDaoTestForAdminUsers;
 
     @Test
     public void getAdminUsersListTest() throws Exception {
-        Assert.assertNotNull(dataDaoTest.getAdminUsersList().isEmpty());
+        Assert.assertNotNull(dataDaoTestForAdminUsers.getAdminUsersList().isEmpty());
 
-        System.out.println("Admin Users List "+dataDaoTest.getAdminUsersList());
+        List<AdminUsers> allAdminUsers = dataDaoTestForAdminUsers.getAdminUsersList();
+
+        for(int i=0;i<allAdminUsers.size();i++)
+            System.out.println(allAdminUsers.get(i).getUsername());
     }
 
     @Test
     public void getAdminUserByIdTest() throws Exception {
-        Assert.assertNotNull(dataDaoTest.getAdminUserById(1));
+        Assert.assertNotNull(dataDaoTestForAdminUsers.getAdminUserById(1));
 
-        System.out.println("Admin User By ID "+dataDaoTest.getAdminUserById(1).getId());
+        System.out.println("Admin User By ID "+ dataDaoTestForAdminUsers.getAdminUserById(1).getUsername());
     }
 
     @Test
     public void addAdminUserTest() throws Exception {
         AdminUsers adminUser = new AdminUsers();
 
-        adminUser.setId(2);
         adminUser.setUsername("AayushKumar");
         adminUser.setPassword("aayushKumar");
 
-        Assert.assertNull(dataDaoTest.getAdminUserById(2));
+        dataDaoTestForAdminUsers.addAdminUser(adminUser);
+        long newId = adminUser.getId();
+
+        Assert.assertNotNull(dataDaoTestForAdminUsers.getAdminUserById(newId));
+
+        System.out.println("Added Username is " + dataDaoTestForAdminUsers.getAdminUserById(newId).getUsername());
     }
 
 
     @Test
     public void deleteAdminUserTest() throws Exception {
-        AdminUsers adminUser = dataDaoTest.getAdminUserById(2);
 
-        long id = adminUser.getId();
-        dataDaoTest.deleteAdminUser(id);
-        Assert.assertNull(dataDaoTest.getAdminUserById(id));
+        long delId = 19;
+
+        dataDaoTestForAdminUsers.deleteAdminUser(delId);
+        Assert.assertNotNull(dataDaoTestForAdminUsers.getAdminUserById(delId));
     }
 }

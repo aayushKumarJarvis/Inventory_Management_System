@@ -110,11 +110,12 @@ public class DataDaoImplementation implements DataDao {
     public  boolean deleteAdminUser(long id) throws Exception {
 
         session = sessionFactory.openSession();
-        Object o = session.load(InventoryItem.class, id);
+        Object o = session.load(AdminUsers.class, id);
         tx = session.getTransaction();
         session.beginTransaction();
         session.delete(o);
         tx.commit();
+
         return false;
     }
 
@@ -160,7 +161,7 @@ public class DataDaoImplementation implements DataDao {
     public  boolean deleteUser(long id) throws Exception {
 
         session = sessionFactory.openSession();
-        Object o = session.load(InventoryItem.class, id);
+        Object o = session.load(Users.class, id);
         tx = session.getTransaction();
         session.beginTransaction();
         session.delete(o);
