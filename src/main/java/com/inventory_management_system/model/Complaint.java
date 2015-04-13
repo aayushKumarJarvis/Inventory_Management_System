@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.omg.PortableInterceptor.ServerRequestInfo;
 
 @Entity
 @Table(name = "complaints")
@@ -21,6 +22,9 @@ public class Complaint implements Serializable {
     @GeneratedValue
     @Column(name = "id")
     private long id;
+
+    @Column
+    private String nameOfPerson;
 
     @Column(name = "subject")
     private String subject;
@@ -36,6 +40,11 @@ public class Complaint implements Serializable {
         this.id = id;
     }
 
+    public String getNameOfPerson() { return nameOfPerson; }
+
+    public void setNameOfPerson(String nameOfPerson) {
+        this.nameOfPerson = nameOfPerson;
+    }
     public String getSubject() {
         return subject;
     }

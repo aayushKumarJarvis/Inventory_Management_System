@@ -3,6 +3,7 @@ package com.inventory_management_system.dao;
 import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
+import com.inventory_management_system.model.Complaint;
 import com.inventory_management_system.model.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -133,6 +134,7 @@ public class DataDaoImplementation implements DataDao {
         return false;
     }
 
+    @Override
     public Users getUserById(long id) throws Exception {
 
         session = sessionFactory.openSession();
@@ -169,4 +171,30 @@ public class DataDaoImplementation implements DataDao {
         return false;
     }
 
+
+    // Hibernate Query Handing for Complaints
+    @Override
+    public boolean addComplaint(Complaint complaint) throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        session.save(complaint);
+        tx.commit();
+        session.close();
+
+        return false;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Complaint> getAllComplaintsById() throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        List<Complaint> complaintList = session.createCriteria(Complaint.class)
+                .list();
+        tx.commit();
+        session.close();
+        return complaintList;
+    }
 }

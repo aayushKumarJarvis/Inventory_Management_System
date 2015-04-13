@@ -3,6 +3,7 @@ package com.inventory_management_system.services;
 import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
+import com.inventory_management_system.model.Complaint;
 import com.inventory_management_system.model.InventoryItem;
 import com.inventory_management_system.model.Users;
 
@@ -36,5 +37,11 @@ public interface DataServices {
     public List<Users> getUsersList() throws Exception;
 
     public boolean deleteUser(long id) throws Exception;
+
+
+    //Web Services for the Complaint CRUD operations
+    public boolean addComplaint(Complaint complaint) throws Exception;
+
+    public List<Complaint> getAllComplaintsById(long id) throws Exception;
 
 }
