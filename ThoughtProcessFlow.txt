@@ -1,0 +1,27 @@
+This File is a dump of all the ideas that keep on piling up in my mind during the development of this project.
+
+One big mistake I did in this project is that I just started coding the stuff out here when getting a clear picture
+of the implementation details. Referring to UCAD diagrams and SRS would have been more helpful and would reduce the
+ambiguity that arises in this current phase of development.
+However, things are managed pretty much good as of now. Web Server is almost done and now I need to start developing
+the client module of this project. That would be a PHP based Web App where I can actually use my Web Services and
+implement the Business requirements of this project.
+
+Right now I am thinking as to what should be the properties of Complaint Object. Let's try it out to list down the
+properties of this object.
+
+1. Register complaint (addComplaint)
+2. Read previous complaints (listAllComplaintsById)
+3. Delete Complaint (deleteComplaint)
+
+Lets make it this only as of now.
+
+Wait Wait Wait !! Seems there is an issue.
+
+As discussed earlier with the group members, the complaint module has to be separate. But the user has to login
+to enter the complaint and see all his previous complaints. That means, the complaints table has to be connected
+with the Users table for login credentials verification.
+So here there can be a solution to this problem, if I connect the primary keys i.e. the 'id' attribute of both the
+tables together, and then when asked for login credentials, i would get the id of this credential object and then
+register or display the complaint records based on this id only. 
+
