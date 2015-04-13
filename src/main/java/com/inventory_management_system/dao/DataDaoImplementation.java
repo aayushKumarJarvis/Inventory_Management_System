@@ -187,7 +187,7 @@ public class DataDaoImplementation implements DataDao {
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<Complaint> getAllComplaintsById() throws Exception {
+    public List<Complaint> getAllComplaints() throws Exception {
 
         session = sessionFactory.openSession();
         tx = session.beginTransaction();

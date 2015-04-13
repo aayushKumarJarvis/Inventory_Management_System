@@ -23,14 +23,14 @@ public class Complaint implements Serializable {
     @Column(name = "id")
     private long id;
 
-    @Column
-    private String nameOfPerson;
-
     @Column(name = "subject")
     private String subject;
 
     @Column(name = "complaint_description")
     private String complaintDescription;
+
+    @Column(name = "name_of_person")
+    private String nameOfPerson;
 
     public long getId() {
         return id;

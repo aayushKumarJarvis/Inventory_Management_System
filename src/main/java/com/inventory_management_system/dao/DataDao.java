@@ -39,5 +39,5 @@ public interface DataDao {
     // DAO methods for Complaint operations
     public boolean addComplaint(Complaint complaint) throws Exception;
 
-    public List<Complaint> getAllComplaintsById() throws Exception;
+    public List<Complaint> getAllComplaints() throws Exception;
 }

@@ -6,6 +6,7 @@
         <mapping class="com.inventory_management_system.model.Users"/>
         <mapping class="com.inventory_management_system.model.AdminUsers"/>
         <mapping class="com.inventory_management_system.model.InventoryItem"/>
+        <mapping class="com.inventory_management_system.model.Complaint"/>
         <mapping class="com.inventory_management_system.model.Status"/>
     </session-factory>
 </hibernate-configuration>

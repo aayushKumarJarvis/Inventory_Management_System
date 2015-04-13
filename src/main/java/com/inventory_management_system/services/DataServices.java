@@ -42,6 +42,6 @@ public interface DataServices {
     //Web Services for the Complaint CRUD operations
     public boolean addComplaint(Complaint complaint) throws Exception;
 
-    public List<Complaint> getAllComplaintsById(long id) throws Exception;
+    public List<Complaint> getAllComplaints() throws Exception;
 
 }

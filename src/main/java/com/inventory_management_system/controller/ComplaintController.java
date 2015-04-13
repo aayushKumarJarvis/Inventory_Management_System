@@ -42,14 +42,14 @@ public class ComplaintController {
         }
     }
 
-    @RequestMapping(value = "/listAllComplaints/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/listAllComplaints/", method = RequestMethod.GET)
     public @ResponseBody
-    List<Complaint> getAllComplaintsById(@PathVariable("id") long id) {
+    List<Complaint> getAllComplaints() {
 
         List<Complaint> complaintList = null;
 
         try {
-            complaintList = dataServices.getAllComplaintsById(id);
+            complaintList = dataServices.getAllComplaints();
         } catch (Exception e) {
             e.printStackTrace();;
         }

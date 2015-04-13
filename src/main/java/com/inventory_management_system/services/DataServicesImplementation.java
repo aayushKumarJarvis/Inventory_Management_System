@@ -3,6 +3,7 @@ package com.inventory_management_system.services;
 import java.util.List;
 
 import com.inventory_management_system.model.AdminUsers;
+import com.inventory_management_system.model.Complaint;
 import com.inventory_management_system.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -75,5 +76,16 @@ public class DataServicesImplementation implements DataServices {
     @Override
     public boolean deleteUser(long id) throws Exception {
         return dataDao.deleteUser(id);
+    }
+
+    // Method Implementations for Complaints
+    @Override
+    public boolean addComplaint(Complaint complaint) throws Exception {
+        return dataDao.addComplaint(complaint);
+    }
+
+    @Override
+    public List<Complaint> getAllComplaints() throws Exception {
+        return dataDao.getAllComplaints();
     }
 }
