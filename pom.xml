@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.beingjavaguys.sample</groupId>
-	<artifactId>SpringRestCrud</artifactId>
+	<groupId>com.inventory_management_system</groupId>
+	<artifactId>Inventory_Management_System</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>SpringRestCrud Maven Webapp</name>
+	<name>Inventory_Management_System Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<spring.version>4.0.5.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<log4j.version>1.2.17</log4j.version>
 		<jdk.version>1.7</jdk.version>
-		<context.path>SpringRestCrud</context.path>
+		<context.path>InventoryManagementSystem</context.path>
 	</properties>
 	<build>
 		<finalName>${pom.artifactId}</finalName>

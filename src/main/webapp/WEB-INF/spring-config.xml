@@ -24,6 +24,9 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.inventory_management_system.model.InventoryItem</value>
+                <value>com.inventory_management_system.model.AdminUsers</value>
+                <value>com.inventory_management_system.model.Users</value>
+                <value>com.inventory_management_system.model.Complaint</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
