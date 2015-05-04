@@ -1,15 +1,14 @@
 package com.inventory_management_system.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
-import com.inventory_management_system.model.AdminUsers;
-import com.inventory_management_system.model.Complaint;
-import com.inventory_management_system.model.Users;
+import com.inventory_management_system.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.inventory_management_system.model.InventoryItem;
 
 public class DataDaoImplementation implements DataDao {
 
@@ -56,8 +55,40 @@ public class DataDaoImplementation implements DataDao {
 		session.close();
 		return inventoryItemList;
 	}
-	
-	@Override
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Order> getOrderItems(long orderid) throws Exception {
+
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        List<Order> ordersList = session.createCriteria(Order.class)
+                .list();
+        tx.commit();
+        session.close();
+        System.out.println("ordersList " + ordersList.isEmpty());
+
+       /* ListIterator orderListIterator = ordersList.listIterator();
+
+        List<InventoryItem> itemList = new ArrayList<InventoryItem>();
+
+        while (orderListIterator.hasNext()) {
+            Order order = (Order) orderListIterator.next();
+
+            if (order.getOrderId() == orderid)
+            {
+                long itemId = order.getItemId();
+                InventoryItem item = getInventoryById(itemId);
+
+                itemList.add(item);
+            }
+        }*/
+
+        return ordersList;
+    }
+
+
+    @Override
 	public boolean deleteInventory(long id) throws Exception {
 
 		session = sessionFactory.openSession();

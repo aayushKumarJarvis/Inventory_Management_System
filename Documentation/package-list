@@ -1,0 +1,5 @@
+com.inventory_management_system
+com.inventory_management_system.controller
+com.inventory_management_system.dao
+com.inventory_management_system.model
+com.inventory_management_system.services

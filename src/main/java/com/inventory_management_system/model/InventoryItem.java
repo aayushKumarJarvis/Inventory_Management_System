@@ -23,8 +23,8 @@ public class InventoryItem implements Serializable {
 	@Column(name = "id")
 	private long id;
 
-	@Column(name = "item_name")
-	private String itemName;
+	@Column(name = "username")
+	private String username;
 
 	@Column(name = "item_quantity")
 	private String itemQuantity;
@@ -43,12 +43,12 @@ public class InventoryItem implements Serializable {
 		this.id = id;
 	}
 
-	public String getItemName() {
-		return itemName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public void setUsername(String itemName) {
+		this.username = itemName;
 	}
 
 	public String getItemQuantity() {

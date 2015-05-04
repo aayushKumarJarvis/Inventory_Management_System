@@ -29,7 +29,7 @@ public class UsersController {
 
     static final Logger logger = Logger.getLogger(AdminUsers.class);
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/addUser", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     Status addUser(@RequestBody Users user) {
 

@@ -23,10 +23,28 @@ public class InventoryTest extends BaseTest {
         for(int i=0;i<allInventory.size();i++) {
 
             System.out.println("Inventory Item Details");
-            System.out.print(allInventory.get(i).getItemName() + " ");
+            System.out.print(allInventory.get(i).getUsername() + " ");
             System.out.print(allInventory.get(i).getItemDescription() + " ");
             System.out.print(allInventory.get(i).getItemQuantity() + " ");
             System.out.print(allInventory.get(i).getItemRemarks() + " ");
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void getOrderItemsTest() throws Exception {
+
+        //Assert.assertNotNull(dataDaoTestForInventory.getOrderItems(1).isEmpty());
+        //System.out.println("HII");
+        List<Order> allInventory = dataDaoTestForInventory.getOrderItems(1);
+        //System.out.println(allInventory.isEmpty());
+
+        for(int i=0;i<allInventory.size();i++) {
+
+            System.out.println("Inventory Item Details");
+            System.out.print(allInventory.get(i).getItemId() + " Item ID");
+            System.out.print(allInventory.get(i).getOrderId() + "Order ID ");
+            System.out.print(allInventory.get(i).getUserId() + "User ID ");
             System.out.println();
         }
     }
@@ -43,7 +61,7 @@ public class InventoryTest extends BaseTest {
 
         InventoryItem inventoryItem = new InventoryItem();
 
-        inventoryItem.setItemName("Pencil");
+        inventoryItem.setUsername("Pencil");
         inventoryItem.setItemDescription("Natraj HB Pencil");
         inventoryItem.setItemQuantity("35");
         inventoryItem.setItemRemarks("Has smooth writing effect");
@@ -53,7 +71,7 @@ public class InventoryTest extends BaseTest {
 
         Assert.assertNotNull(dataDaoTestForInventory.getInventoryById(newId));
 
-        System.out.println("Added Inventory is " + dataDaoTestForInventory.getInventoryById(newId).getItemName());
+        System.out.println("Added Inventory is " + dataDaoTestForInventory.getInventoryById(newId).getUsername());
         System.out.println("Inventory Description " + dataDaoTestForInventory.getInventoryById(newId).getItemDescription());
         System.out.println("Inventory Quantity " + dataDaoTestForInventory.getInventoryById(newId).getItemQuantity());
         System.out.println("Inventory Remarks " + dataDaoTestForInventory.getInventoryById(newId).getItemRemarks());

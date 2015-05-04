@@ -66,6 +66,8 @@ public class InventoryController {
 		return inventoryItemList;
 	}
 
+
+
 	@RequestMapping(value = "deleteInventory/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	Status deleteInventory(@PathVariable("id") long id) {
@@ -76,6 +78,5 @@ public class InventoryController {
 		} catch (Exception e) {
 			return new Status(0, e.toString());
 		}
-
 	}
 }

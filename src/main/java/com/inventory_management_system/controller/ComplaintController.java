@@ -29,7 +29,7 @@ public class ComplaintController {
 
     static final Logger logger = Logger.getLogger(Complaint.class);
 
-    @RequestMapping(value = "/addComplaint", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/addComplaint", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     Status addComplaint(@RequestBody Complaint complaint) {
 
