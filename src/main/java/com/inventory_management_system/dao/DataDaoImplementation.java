@@ -56,38 +56,6 @@ public class DataDaoImplementation implements DataDao {
 		return inventoryItemList;
 	}
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<Order> getOrderItems(long orderid) throws Exception {
-
-        session = sessionFactory.openSession();
-        tx = session.beginTransaction();
-        List<Order> ordersList = session.createCriteria(Order.class)
-                .list();
-        tx.commit();
-        session.close();
-        System.out.println("ordersList " + ordersList.isEmpty());
-
-       /* ListIterator orderListIterator = ordersList.listIterator();
-
-        List<InventoryItem> itemList = new ArrayList<InventoryItem>();
-
-        while (orderListIterator.hasNext()) {
-            Order order = (Order) orderListIterator.next();
-
-            if (order.getOrderId() == orderid)
-            {
-                long itemId = order.getItemId();
-                InventoryItem item = getInventoryById(itemId);
-
-                itemList.add(item);
-            }
-        }*/
-
-        return ordersList;
-    }
-
-
     @Override
 	public boolean deleteInventory(long id) throws Exception {
 

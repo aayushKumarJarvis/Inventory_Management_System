@@ -23,5 +23,14 @@ to enter the complaint and see all his previous complaints. That means, the comp
 with the Users table for login credentials verification.
 So here there can be a solution to this problem, if I connect the primary keys i.e. the 'id' attribute of both the
 tables together, and then when asked for login credentials, i would get the id of this credential object and then
-register or display the complaint records based on this id only. 
+register or display the complaint records based on this id only.
 
+The above mentioned issue was resolved somehow. The project is completed and is being demonstrated to Prof. Gorthi and Arpan Sir. Although we didn't have that great UI
+for the project, but they were impressed by the fact that our group developed a software service which would be used
+by the LNMIIT students as well as the MIS people. Fortunately that would fetch us more marks in the project ;)
+
+Meanwhile, I showed an extremely bad team work spirit in this project. Not that I was rude to my team members or I
+didn't cooperate. It's just that I developed the entire project on my owm, without involving my team members. !!
+Anyways, I exaplained to them in full detail. I hope they got the context cleared.
+
+It was great learning this REST API development using Spring Hibernate Framework.

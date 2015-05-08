@@ -31,23 +31,6 @@ public class InventoryTest extends BaseTest {
         }
     }
 
-    @Test
-    public void getOrderItemsTest() throws Exception {
-
-        //Assert.assertNotNull(dataDaoTestForInventory.getOrderItems(1).isEmpty());
-        //System.out.println("HII");
-        List<Order> allInventory = dataDaoTestForInventory.getOrderItems(1);
-        //System.out.println(allInventory.isEmpty());
-
-        for(int i=0;i<allInventory.size();i++) {
-
-            System.out.println("Inventory Item Details");
-            System.out.print(allInventory.get(i).getItemId() + " Item ID");
-            System.out.print(allInventory.get(i).getOrderId() + "Order ID ");
-            System.out.print(allInventory.get(i).getUserId() + "User ID ");
-            System.out.println();
-        }
-    }
 
     @Test
     public void getInventoryByIdTest() throws Exception {

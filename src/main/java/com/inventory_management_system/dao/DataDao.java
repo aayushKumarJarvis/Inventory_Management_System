@@ -157,6 +157,4 @@ public interface DataDao {
      * @return List of Inventory Items
      * @throws Exception
      */
-    public List<InventoryItem> getOrderItems(long orderid) throws Exception;
-
 }
